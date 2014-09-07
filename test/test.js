@@ -5,7 +5,7 @@ var // Expectation library:
 	chai = require( 'chai' ),
 
 	// Module to be tested:
-	lib = require( './../lib' );
+	max = require( './../lib' );
 
 
 // VARIABLES //
@@ -20,9 +20,38 @@ describe( 'compute-max', function tests() {
 	'use strict';
 
 	it( 'should export a function', function test() {
-		expect( lib ).to.be.a( 'function' );
+		expect( max ).to.be.a( 'function' );
 	});
 
-	it( 'should do something' );
+	it( 'should throw an error if provided a non-array', function test() {
+		var values = [
+				'5',
+				5,
+				true,
+				undefined,
+				null,
+				NaN,
+				function(){},
+				{}
+			];
+
+		for ( var i = 0; i < values.length; i++ ) {
+			expect( badValue( values[i] ) ).to.throw( TypeError );
+		}
+		function badValue( value ) {
+			return function() {
+				max( value );
+			};
+		}
+	});
+
+	it( 'should return the minimum value', function test() {
+		var data, expected;
+
+		data = [ 4, 2, 5, 3, 8, 2 ];
+		expected = 8;
+
+		assert.strictEqual( max( data ), expected );
+	});
 
 });

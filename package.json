@@ -25,7 +25,11 @@
   "keywords": [
     "compute.io",
     "compute",
-    "computation"
+    "computation",
+    "statistics",
+    "stats",
+    "maximum",
+    "max"
   ],
   "bugs": {
     "url": "https://github.com/compute-io/max/issues"
