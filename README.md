@@ -2,7 +2,7 @@ Max
 ===
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url] [![Dependencies][dependencies-image]][dependencies-url]
 
-> Computes the maximum value of an array.
+> Computes the maximum value of a numeric array.
 
 
 ## Installation
@@ -20,6 +20,17 @@ To use the module,
 
 ``` javascript
 var max = require( 'compute-max' );
+```
+
+#### max( arr )
+
+Computes the maximum value of a numeric `array`.
+
+``` javascript
+var data = [ 3, 2, 5, 4, 4, 5 ];
+
+var val = max( data );
+// returns 5
 ```
 
 
@@ -66,7 +77,7 @@ $ make test-cov
 Istanbul creates a `./reports/coverage` directory. To access an HTML version of the report,
 
 ``` bash
-$ open reports/coverage/lcov-report/index.html
+$ make view-cov
 ```
 
 

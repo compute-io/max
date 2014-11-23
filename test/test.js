@@ -1,3 +1,4 @@
+'use strict';
 
 // MODULES //
 
@@ -17,7 +18,6 @@ var expect = chai.expect,
 // TESTS //
 
 describe( 'compute-max', function tests() {
-	'use strict';
 
 	it( 'should export a function', function test() {
 		expect( max ).to.be.a( 'function' );
