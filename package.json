@@ -32,7 +32,8 @@
     "math",
     "maximum",
     "max",
-    "array"
+    "array",
+    "range"
   ],
   "bugs": {
     "url": "https://github.com/compute-io/max/issues"
