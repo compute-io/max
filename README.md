@@ -52,6 +52,9 @@ var val = max( arr, getValue );
 ```
 
 
+__Note__: if provided an empty `array`, the function returns `null`.
+
+
 
 ## Examples
 
