@@ -2,7 +2,7 @@ Max
 ===
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url] [![Dependencies][dependencies-image]][dependencies-url]
 
-> Computes the maximum value of a numeric array.
+> Computes the maximum value of an array.
 
 
 ## Installation
@@ -16,15 +16,13 @@ For use in the browser, use [browserify](https://github.com/substack/node-browse
 
 ## Usage
 
-To use the module,
-
 ``` javascript
 var max = require( 'compute-max' );
 ```
 
-#### max( arr )
+#### max( arr[, accessor] )
 
-Computes the maximum value of a numeric `array`.
+Computes the maximum value of an `array`. For numeric `arrays`,
 
 ``` javascript
 var data = [ 3, 2, 5, 4, 4, 5 ];
@@ -33,12 +31,34 @@ var val = max( data );
 // returns 5
 ```
 
+For non-numeric `arrays`, provide an accessor `function` for accessing numeric values
+
+``` javascript
+var arr = [
+	{'x':3},
+	{'x':2},
+	{'x':5},
+	{'x':4},
+	{'x':4},
+	{'x':5}
+];
+
+function getValue( d ) {
+	return d.x;
+}
+
+var val = max( arr, getValue );
+// returns 5
+```
+
+
 
 ## Examples
 
 ``` javascript
-var data = new Array( 1000 );
+var max = require( 'compute-max' );
 
+var data = new Array( 1000 );
 for ( var i = 0; i < data.length; i++ ) {
 	data[ i ] = Math.random()*1000;
 }
@@ -57,7 +77,7 @@ $ node ./examples/index.js
 
 ### Unit
 
-Unit tests use the [Mocha](http://visionmedia.github.io/mocha) test framework with [Chai](http://chaijs.com) assertions. To run the tests, execute the following command in the top-level application directory:
+Unit tests use the [Mocha](http://mochajs.org) test framework with [Chai](http://chaijs.com) assertions. To run the tests, execute the following command in the top-level application directory:
 
 ``` bash
 $ make test
@@ -81,15 +101,15 @@ $ make view-cov
 ```
 
 
+---
 ## License
 
 [MIT license](http://opensource.org/licenses/MIT). 
 
 
----
 ## Copyright
 
-Copyright &copy; 2014. Athan Reines.
+Copyright &copy; 2014-2015. Athan Reines.
 
 
 [npm-image]: http://img.shields.io/npm/v/compute-max.svg

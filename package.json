@@ -1,7 +1,7 @@
 {
   "name": "compute-max",
   "version": "1.0.1",
-  "description": "Computes the maximum value of a numeric array.",
+  "description": "Computes the maximum value of an array.",
   "author": {
     "name": "Athan Reines",
     "email": "kgryte@gmail.com"
@@ -37,12 +37,17 @@
   "bugs": {
     "url": "https://github.com/compute-io/max/issues"
   },
-  "dependencies": {},
+  "dependencies": {
+    "validate.io-array": "^1.0.3",
+    "validate.io-function": "^1.0.2"
+  },
   "devDependencies": {
-    "chai": "1.x.x",
-    "mocha": "1.x.x",
+    "chai": "2.x.x",
     "coveralls": "^2.11.1",
-    "istanbul": "^0.3.0"
+    "istanbul": "^0.3.0",
+    "jshint": "2.x.x",
+    "jshint-stylish": "^1.0.0",
+    "mocha": "2.x.x"
   },
   "licenses": [
     {
