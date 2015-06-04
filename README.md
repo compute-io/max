@@ -2,7 +2,7 @@ Max
 ===
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url] [![Dependencies][dependencies-image]][dependencies-url]
 
-> Computes the maximum value.
+> Computes the maximum value of an array.
 
 
 ## Installation
@@ -83,12 +83,12 @@ mat = matrix( data, [5,5], 'int8' );
 	  20 21 22 23 24 ]
 */
 
-m = max( mat );
+mu = max( mat );
 /*
-	[ 20
-	  21
-	  22
-	  23
+	[ 4
+	  9
+	  14
+	  19
 	  24 ]
 */
 ```
@@ -100,7 +100,7 @@ mu = max( mat, {
 	'dim': 1
 });
 /*
-	[ 4, 9, 14, 19, 24 ]
+	[ 20 21 22 23 24 ]
 */
 ```
 
