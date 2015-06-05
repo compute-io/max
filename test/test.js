@@ -3,7 +3,7 @@
 
 // MODULES //
 
-var matrix = require( 'compute-matrix' );
+var matrix = require( 'dstructs-matrix' );
 
 var // Expectation library:
 	chai = require( 'chai' ),
@@ -138,6 +138,31 @@ describe( 'compute-max', function tests() {
 		}
 	});
 
+	it( 'should throw an error if provided a dimension which is greater than 2 when provided a matrix', function test() {
+		var values = [
+			'5',
+			5,
+			true,
+			undefined,
+			null,
+			NaN,
+			[],
+			{},
+			function(){}
+		];
+
+		for ( var i = 0; i < values.length; i++ ) {
+			expect( badValue( values[i] ) ).to.throw( Error );
+		}
+		function badValue( value ) {
+			return function() {
+				max( matrix( [2,2] ), {
+					'dim': value
+				});
+			};
+		}
+	});
+
 	it( 'should return the maximum value for an array', function test() {
 		var data, expected;
 
@@ -168,31 +193,6 @@ describe( 'compute-max', function tests() {
 		}
 	});
 
-	it( 'should calculate the column maxima of a matrix', function test() {
-		var data, expected, results;
-
-		data = matrix( new Int32Array( [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ] ), [3,3] );
-		expected = matrix( new Int32Array( [ 3, 6, 9 ] ), [3,1] );
-
-		results = max( data );
-
-		assert.strictEqual( results.length, expected.length );
-		assert.deepEqual( results, expected );
-	});
-
-	it( 'should calculate the row maxima of a matrix', function test() {
-		var data, expected, results;
-
-		data = matrix( new Int32Array( [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ] ), [3,3] );
-		expected = matrix( new Int32Array( [ 7, 8, 9 ] ), [1, 3] );
-
-		results = max( data, {'dim': 1} );
-
-		assert.strictEqual( results.length, expected.length );
-		assert.deepEqual( results, expected );
-	});
-
-
 	it( 'should return null if provided an empty array', function test() {
 		assert.isNull( max( [] ) );
 		assert.isNull( max( [], {'accessor': function( x ) { return x; }} ) );
@@ -206,6 +206,61 @@ describe( 'compute-max', function tests() {
 
 		data = matrix( new Int32Array(), [0, 1] );
 		assert.isNull( max( data ) );
+	});
+
+
+	it( 'should compute the maximum along a matrix dimension', function test() {
+		var expected,
+			data,
+			mat,
+			m,
+			i;
+
+		data = new Int8Array( 25 );
+		for ( i = 0; i < data.length; i++ ) {
+			data[ i ] = i + 1;
+		}
+		mat = matrix( data, [5,5], 'int8' );
+
+		// ensure that values in matrix are not all ordered 
+		mat.set( 0, 3, 5 );
+		mat.set( 0, 4, 4 );
+
+		// Default:
+		m = max( mat );
+		expected = '5;10;15;20;25';
+
+		assert.strictEqual( m.toString(), expected, 'default' );
+
+		// Along columns:
+		m = max( mat, {
+			'dim': 2
+		});
+		expected = '5;10;15;20;25';
+
+		assert.strictEqual( m.toString(), expected, 'dim: 2' );
+
+		// Along rows:
+		m = max( mat, {
+			'dim': 1
+		});
+		expected = '21,22,23,24,25';
+
+		assert.strictEqual( m.toString(), expected, 'dim: 1' );
+	});
+
+	it( 'should compute the maximum of 1d matrices (vectors)', function test() {
+		var data, mat;
+
+		data = [ 2, 4, 5, 3, 8, 2 ];
+
+		// Row vector:
+		mat = matrix( data, [1,6], 'int8' );
+		assert.strictEqual( max( mat ), 8 );
+
+		// Column vector:
+		mat = matrix( data, [6,1], 'int8' );
+		assert.strictEqual( max( mat ), 8 );
 	});
 
 });
