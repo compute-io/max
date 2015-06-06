@@ -107,7 +107,7 @@ mu = max( mat, {
 ## Examples
 
 ``` javascript
-var matrix = require( 'compute-matrix' ),
+var matrix = require( 'dstructs-matrix' ),
 	max = require( 'compute-max' );
 
 var data,
@@ -219,7 +219,7 @@ $ make view-cov
 
 ## Copyright
 
-Copyright &copy; 2014-2015. The Compute.io Authors.
+Copyright &copy; 2014-2015. The [Compute.io](https://github.com/compute-io) Authors.
 
 
 [npm-image]: http://img.shields.io/npm/v/compute-max.svg
