@@ -32,7 +32,7 @@ m = max( data );
 // returns 8
 
 data = new Int8Array( data );
-m = mean( data );
+m = max( data );
 // returns 8
 ```
 
