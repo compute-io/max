@@ -1,7 +1,7 @@
 {
   "name": "compute-max",
   "version": "1.0.1",
-  "description": "Computes the maximum value of an array.",
+  "description": "Computes the maximum value.",
   "author": {
     "name": "Athan Reines",
     "email": "kgryte@gmail.com"
@@ -56,7 +56,7 @@
     "validate.io-string-primitive": "^1.0.0"
   },
   "devDependencies": {
-    "chai": "2.x.x",
+    "chai": "3.x.x",
     "coveralls": "^2.11.1",
     "istanbul": "^0.3.0",
     "jshint": "2.x.x",
