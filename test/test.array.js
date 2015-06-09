@@ -18,13 +18,13 @@ var expect = chai.expect,
 
 // TESTS //
 
-describe( 'array mean', function tests() {
+describe( 'array maximum', function tests() {
 
 	it( 'should export a function', function test() {
 		expect( max ).to.be.a( 'function' );
 	});
 
-	it( 'should compute the arithmetic mean', function test() {
+	it( 'should compute the maximum', function test() {
 		var data, expected;
 
 		data = [ 2, 4, 5, 3, 8, 2 ];

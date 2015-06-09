@@ -1,7 +1,7 @@
 {
   "name": "compute-max",
   "version": "1.0.1",
-  "description": "Computes the maximum value of an array.",
+  "description": "Computes the maximum value.",
   "author": {
     "name": "Athan Reines",
     "email": "kgryte@gmail.com"

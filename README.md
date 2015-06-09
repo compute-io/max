@@ -2,7 +2,7 @@ Max
 ===
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url] [![Dependencies][dependencies-image]][dependencies-url]
 
-> Computes the maximum value of an array.
+> Computes the maximum value.
 
 
 ## Installation
@@ -32,7 +32,7 @@ m = max( data );
 // returns 8
 
 data = new Int8Array( data );
-m = mean( data );
+m = max( data );
 // returns 8
 ```
 
@@ -107,7 +107,7 @@ mu = max( mat, {
 ## Examples
 
 ``` javascript
-var matrix = require( 'compute-matrix' ),
+var matrix = require( 'dstructs-matrix' ),
 	max = require( 'compute-max' );
 
 var data,
@@ -219,7 +219,7 @@ $ make view-cov
 
 ## Copyright
 
-Copyright &copy; 2014-2015. The Compute.io Authors.
+Copyright &copy; 2014-2015. The [Compute.io](https://github.com/compute-io) Authors.
 
 
 [npm-image]: http://img.shields.io/npm/v/compute-max.svg
