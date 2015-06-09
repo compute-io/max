@@ -55,9 +55,8 @@ function getValue( d ) {
 var val = max( arr, getValue );
 // returns 5
 ```
-__Note__: if provided an empty `array`, the function returns `null`.
 
-If provided a [`matrix`](https://github.com/dstructs/matrix), the function accepts the following `option`:
+If provided a [`matrix`](https://github.com/dstructs/matrix), the function accepts the following additional `option`:
 
 *	__dim__: dimension along which to compute the maximum. Default: `2` (along the columns).
 
@@ -103,6 +102,8 @@ mu = max( mat, {
 	[ 20 21 22 23 24 ]
 */
 ```
+
+__Note__: if provided an empty `array` or empty `matrix`, the function returns `null`.
 
 ## Examples
 
